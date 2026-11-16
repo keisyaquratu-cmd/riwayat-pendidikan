@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Pendidikan - Keisya</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f1f5f9;
+            color: #1e293b;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 12px #00000010;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #1d4ed8;
+        }
+
+        .identitas {
+            border-left: 5px solid #2563eb;
+        }
+
+        .identitas h2 {
+            margin-bottom: 15px;
+        }
+
+        .identitas p {
+            padding: 9px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .identitas p:last-child {
+            border-bottom: none;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 11px 18px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            color: white;
+            background: #2563eb;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 13px;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: left;
+        }
+
+        th {
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+
+        .hapus {
+            background: #dc2626;
+        }
+
+        .edit {
+            background: #f59e0b;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            .card {
+                overflow-x: auto;
+            }
+
+            header {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Riwayat Pendidikan</h1>
+        <p>Aplikasi Pendataan Riwayat Pendidikan</p>
+    </header>
+
+    <!-- IDENTITAS MAHASISWA -->
+    <div class="card identitas">
+        <h2>Identitas Mahasiswa</h2>
+
+        <p><strong>Nama:</strong> Keisya Quratuain</p>
+        <p><strong>NIM:</strong> 2501017</p>
+        <p><strong>Program Studi:</strong> TRPL</p>
+        <p><strong>Semester:</strong> 3</p>
+        <p><strong>Jenjang:</strong> D4 - Sarjana Terapan</p>
+    </div>
+
+    <div class="card">
+        <h2>Tambah Riwayat Pendidikan</h2>
+
+        <form id="formRiwayat">
+
+            <div class="form-group">
+                <label>Nama Sekolah / Perguruan Tinggi</label>
+                <input type="text" id="nama_sekolah"
+                    placeholder="Masukkan nama sekolah" required>
+            </div>
+
+            <div class="form-group">
+                <label>Tahun Masuk</label>
+                <input type="number" id="tahun_masuk"
+                    placeholder="Contoh: 2020" required>
+            </div>
+
+            <div class="form-group">
+                <label>Tahun Lulus</label>
+                <input type="number" id="tahun_lulus"
+                    placeholder="Contoh: 2023" required>
+            </div>
+
+            <div class="form-group">
+                <label>Keterangan</label>
+                <textarea id="keterangan"
+                    placeholder="Masukkan keterangan"></textarea>
+            </div>
+
+            <button type="submit">Simpan Data</button>
+
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Daftar Riwayat Pendidikan</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Sekolah</th>
+                    <th>Tahun Masuk</th>
+                    <th>Tahun Lulus</th>
+                    <th>Keterangan</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+
+            <tbody id="daftarRiwayat">
+                <tr>
+                    <td colspan="6">Memuat data...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
